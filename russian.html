@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глобальная Новостная Сеть</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">GNN</div>
+            <div class="title">Глобальная Новостная Сеть</div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">English</a></li>
+                <li><a href="urdu.html">اردو</a></li>
+                <li><a href="bulgarian.html">Български</a></li>
+                <li><a href="russian.html" class="active">Русский</a></li>
+                <li><a href="indonesian.html">Bahasa Indonesia</a></li>
+                <li><a href="chinese.html">中文</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск новостей...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <div class="breaking-news">
+        <span class="breaking-title">СРОЧНЫЕ НОВОСТИ</span>
+        <marquee behavior="scroll" direction="left">
+            Глобальный саммит по изменению климата завершился новыми соглашениями • Технологический гигант представил революционного ИИ-ассистента • Финал спортивного чемпионата завершился драматичной победой в дополнительное время
+        </marquee>
+    </div>
+
+    <main>
+        <section class="featured-news">
+            <div class="main-article">
+                <img src="/api/placeholder/800/450" alt="Климатический саммит">
+                <div class="article-content">
+                    <span class="category politics">Политика</span>
+                    <h2>Мировые лидеры достигли исторического соглашения по климату</h2>
+                    <p class="date">11 апреля, 2025 г.</p>
+                    <p>Мировые лидеры из более чем 190 стран достигли знаменательного соглашения на Глобальном климатическом саммите о сокращении выбросов углерода на 50% к 2030 году. Соглашение, которое было заключено после двух недель интенсивных переговоров, включает механизмы финансовой поддержки развивающихся стран и устанавливает амбициозные цели по внедрению возобновляемых источников энергии.</p>
+                    <a href="#" class="read-more">Читать далее</a>
+                </div>
+            </div>
+            <div class="side-articles">
+                <div class="article">
+                    <img src="/api/placeholder/400/250" alt="Технологические инновации">
+                    <div class="article-content">
+                        <span class="category technology">Технологии</span>
+                        <h3>Прорыв в квантовых вычислениях может революционизировать обработку данных</h3>
+                        <p class="date">10 апреля, 2025 г.</p>
+                        <p>Учёные объявили о значительном прогрессе в стабильности квантовых вычислений, потенциально приближая практические квантовые компьютеры к реальности.</p>
+                        <a href="#" class="read-more">Читать далее</a>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="/api/placeholder/400/250" alt="Новости здравоохранения">
+                    <div class="article-content">
+                        <span class="category health">Здоровье</span>
+                        <h3>Новый прорыв в медицинских исследованиях показывает перспективы лечения болезни Альцгеймера</h3>
+                        <p class="date">9 апреля, 2025 г.</p>
+                        <p>Недавно разработанное лечение показало замечательные результаты в ранних клинических испытаниях, потенциально предлагая надежду миллионам пострадавших от этого заболевания.</p>
+                        <a href="#" class="read-more">Читать далее</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-grid">
+            <article class="grid-item">
+                <img src="/api/placeholder/350/200" alt="Экономические новости">
+                <span class="category business">Бизнес</span>
+                <h3>Глобальные рынки положительно реагируют на новую экономическую политику</h3>
+                <p class="date">11 апреля, 2025 г.</p>
+                <p>Фондовые рынки по всему миру выросли после объявления о скоординированных пакетах экономических стимулов от крупнейших экономик.</p>
+                <a href="#" class="read-more">Читать далее</a>
+            </article>
+            <article class="grid-item">
+                <img src="/api/placeholder/350/200" alt="Спортивное событие">
+                <span class="category sports">Спорт</span>
+                <h3>Команда-аутсайдер одержала победу в финале чемпионата</h3>
+                <p class="date">10 апреля, 2025 г.</p>
+                <p>В потрясающем развороте событий аутсайдеры одолели действующих чемпионов в триллере с дополнительным временем, который запомнится на долгие годы.</p>
+                <a href="#" class="read-more">Читать далее</a>
+            </article>
+            <article class="grid-item">
+                <img src="/api/placeholder/350/200" alt="Новости развлечений">
+                <span class="category entertainment">Развлечения</span>
+                <h3>Режиссёр-лауреат премии анонсировал новаторский кинопроект</h3>
+                <p class="date">9 апреля, 2025 г.</p>
+                <p>Известный кинорежиссёр раскрыл планы амбициозного нового проекта, который будет использовать передовые технологии.</p>
+                <a href="#" class="read-more">Читать далее</a>
+            </article>
+            <article class="grid-item">
+                <img src="/api/placeholder/350/200" alt="Научные новости">
+                <span class="category science">Наука</span>
+                <h3>Астрономы обнаружили потенциально обитаемую экзопланету</h3>
+                <p class="date">8 апреля, 2025 г.</p>
+                <p>Учёные идентифицировали новую экзопланету в зоне обитаемости её звезды, которая показывает многообещающие признаки поддержки жизни.</p>
+                <a href="#" class="read-more">Читать далее</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>О Глобальной Новостной Сети</h2>
+                <p>GNN стремится предоставлять точное, своевременное и сбалансированное освещение новостей со всего мира на нескольких языках.</p>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h2>Быстрые ссылки</h2>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Политика конфиденциальности</a></li>
+                    <li><a href="#">Условия использования</a></li>
+                    <li><a href="#">Карьера</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>Свяжитесь с нами</h2>
+                <p><i class="fas fa-map-marker-alt"></i> ул. Новостная 123, Медиа-Сити</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@globalnewsnetwork.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Глобальная Новостная Сеть. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

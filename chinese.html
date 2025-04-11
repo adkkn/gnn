@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球新闻网络</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">GNN</div>
+            <div class="title">全球新闻网络</div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">English</a></li>
+                <li><a href="urdu.html">اردو</a></li>
+                <li><a href="bulgarian.html">Български</a></li>
+                <li><a href="russian.html">Русский</a></li>
+                <li><a href="indonesian.html">Bahasa Indonesia</a></li>
+                <li><a href="chinese.html" class="active">中文</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索新闻...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <div class="breaking-news">
+        <span class="breaking-title">突发新闻</span>
+        <marquee behavior="scroll" direction="left">
+            全球气候变化峰会达成新协议 • 科技巨头推出革命性人工智能助手 • 体育锦标赛决赛以加时赛戏剧性胜利结束
+        </marquee>
+    </div>
+
+    <main>
+        <section class="featured-news">
+            <div class="main-article">
+                <img src="/api/placeholder/800/450" alt="气候峰会">
+                <div class="article-content">
+                    <span class="category politics">政治</span>
+                    <h2>全球领导人达成历史性气候协议</h2>
+                    <p class="date">2025年4月11日</p>
+                    <p>来自190多个国家的世界领导人在全球气候峰会上达成了一项里程碑式的协议，到2030年将碳排放减少50%。这项协议经过两周的密集谈判后达成，包括向发展中国家提供财政支持的机制，并为可再生能源的采用设定了雄心勃勃的目标。</p>
+                    <a href="#" class="read-more">阅读更多</a>
+                </div>
+            </div>
+            <div class="side-articles">
+                <div class="article">
+                    <img src="/api/placeholder/400/250" alt="技术创新">
+                    <div class="article-content">
+                        <span class="category technology">科技</span>
+                        <h3>量子计算突破可能彻底改变数据处理</h3>
+                        <p class="date">2025年4月10日</p>
+                        <p>科学家宣布在量子计算稳定性方面取得重大进展，有可能使实用量子计算机更接近现实。</p>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+                <div class="article">
+                    <img src="/api/placeholder/400/250" alt="健康新闻">
+                    <div class="article-content">
+                        <span class="category health">健康</span>
+                        <h3>医学研究新突破显示治疗阿尔茨海默病的希望</h3>
+                        <p class="date">2025年4月9日</p>
+                        <p>一种新开发的治疗方法在早期临床试验中显示出显著的效果，可能为数百万受到这种疾病影响的人提供希望。</p>
+                        <a href="#" class="read-more">阅读更多</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="news-grid">
+            <article class="grid-item">
+                <img src="/api/placeholder/350/200" alt="经济新闻">
+                <span class="category business">商业</span>
+                <h3>全球市场对新经济政策反应积极</h3>
+                <p class="date">2025年4月11日</p>
+                <p>在主要经济体宣布协调经济刺激方案后，全球股市普遍上涨。</p>
+                <a href="#" class="read-more">阅读更多</a>
+            </article>
+            <article class="grid-item">
+                <img src="/api/placeholder/350/200" alt="体育赛事">
+                <span class="category sports">体育</span>
+                <h3>黑马队在锦标赛决赛中获胜</h3>
+                <p class="date">2025年4月10日</p>
+                <p>在一场令人震惊的逆转中，黑马队在一场将被铭记多年的加时赛中战胜了卫冕冠军。</p>
+                <a href="#" class="read-more">阅读更多</a>
+            </article>
+            <article class="grid-item">
+                <img src="/api/placeholder/350/200" alt="娱乐新闻">
+                <span class="category entertainment">娱乐</span>
+                <h3>获奖导演宣布开创性电影项目</h3>
+                <p class="date">2025年4月9日</p>
+                <p>这位备受赞誉的电影制作人透露了一个雄心勃勃的新项目计划，该项目将利用前沿技术。</p>
+                <a href="#" class="read-more">阅读更多</a>
+            </article>
+            <article class="grid-item">
+                <img src="/api/placeholder/350/200" alt="科学新闻">
+                <span class="category science">科学</span>
+                <h3>天文学家发现潜在宜居系外行星</h3>
+                <p class="date">2025年4月8日</p>
+                <p>科学家在其恒星宜居带内发现了一颗新的系外行星，显示出支持生命的有希望迹象。</p>
+                <a href="#" class="read-more">阅读更多</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>关于全球新闻网络</h2>
+                <p>GNN致力于用多种语言提供来自全球的准确、及时和平衡的新闻报道。</p>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h2>快速链接</h2>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">职业机会</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>联系我们</h2>
+                <p><i class="fas fa-map-marker-alt"></i> 新闻街123号，媒体城</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@globalnewsnetwork.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 全球新闻网络。保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
