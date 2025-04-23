@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="article-title">عنوان المقالة</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="gnn-favicon.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', 'Noto Kufi Arabic', 'Noto Naskh Arabic', Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="rtl">
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <a href="#">Subscribe</a>
+            <a href="#">Today's Paper</a>
+            <a href="#">Newsletter</a>
+        </div>
+        <div class="top-bar-right">
+            <button class="top-bar-button">Sign In</button>
+            <button class="top-bar-button">Subscribe</button>
+        </div>
+    </div>  
+    <header>
+        <div class="logo-container">
+            <div class="title" id="site-title">شبكة الأخبار العالمية</div>
+            <img class="gnnlogo" src="gnnicon.jpg" alt="GNN Logo" style="margin-left: 20px; margin-right: 0px;">
+        </div>
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">English</a></li>
+                <li><a href="arabic.html" class="active">العربية</a></li>
+                <li><a href="urdu.html">اردو</a></li>
+                <li><a href="bulgarian.html">Български</a></li>
+                <li><a href="russian.html">Русский</a></li>
+                <li><a href="indonesian.html">Bahasa Indonesia</a></li>
+                <li><a href="chinese.html">中文</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="البحث عن الأخبار...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <main class="article-page">
+        <div class="article-container">
+            <div class="article-header">
+                <div class="article-meta">
+                    <span id="article-category" class="category politics">الفئة</span>
+                    <span id="article-tag" class="hidden"></span>
+                </div>
+                <h1 id="article-headline">عنوان المقالة</h1>
+                <p id="article-date" class="date">التاريخ</p>
+            </div>
+            <div class="article-image-container">
+                <img id="article-image" src="" alt="صورة المقالة">
+                <p class="image-caption" id="image-caption">وصف الصورة</p>
+            </div>
+            <div id="article-content" class="article-body">
+                <!-- Content will be loaded dynamically -->
+            </div>
+            <div class="article-author">
+                <p>بقلم <span id="article-author">اسم الكاتب</span></p>
+            </div>
+        </div>
+        
+        <aside class="article-sidebar">
+            <div class="related-articles">
+                <h3>مقالات ذات صلة</h3>
+                <ul id="related-articles-list">
+                    <!-- Will be populated dynamically -->
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>عن شبكة الأخبار العالمية</h2>
+                <p>شبكة الأخبار العالمية مكرسة لتقديم تغطية إخبارية دقيقة وفي الوقت المناسب ومتوازنة من جميع أنحاء العالم بلغات متعددة.</p>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h2>روابط سريعة</h2>
+                <ul>
+                    <li><a href="#">من نحن</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                    <li><a href="#">سياسة الخصوصية</a></li>
+                    <li><a href="#">شروط الخدمة</a></li>
+                    <li><a href="#">وظائف</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>اتصل بنا</h2>
+                <p><i class="fas fa-map-marker-alt"></i> 123 شارع الأخبار، مدينة الإعلام</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@globalnewsnetwork.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0px;">&copy; 2025 شبكة الأخبار العالمية. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+            const language = urlParams.get('lang');
+            
+            if (articleId && language) {
+                loadArticleContent(articleId, language);
+                setActiveLanguage(language);
+            } else {
+                // Redirect back to homepage if no article specified
+                window.location.href = 'index.html';
+            }
+        });
+        
+        function loadArticleContent(articleId, language) {
+            // This is a simplified version - in a real app, you'd fetch from a database
+            const articles = {
+                // Urdu articles
+                'entertain-ur': {
+                    title: 'ڈرامہ سیریل ارطغرل غازی کی پاکستان میں مقبولیت',
+                    category: 'تفریح',
+                    categoryClass: 'entertainment',
+                    date: '20 اپریل 2025',
+                    image: 'https://www.eurasiareview.com/wp-content/uploads/2020/11/c-208-800x445.jpg',
+                    imageCaption: 'پاکستانی ناظرین ارطغرل غازی کی قسطیں دیکھتے ہوئے',
+                    author: 'CNN پاکستان',
+                    content: `
+                        کراچی، سی این این پاکستان -- ترکی کا مشہور تاریخی ڈرامہ سیریل "ارطغرل غازی" پاکستانی عوام میں غیر معمولی مقبولیت حاصل کر چکا ہے۔ یہ سیریل نہ صرف یوٹیوب پر لاکھوں ویوز حاصل کر رہا ہے بلکہ مختلف ٹی وی چینلز پر بھی ریکارڈ ریٹنگز لے رہا ہے۔ ڈرامے کی کہانی، جو سلطنت عثمانیہ کے بانی ارطغرل کے گرد گھومتی ہے، نے شائقین کو نہ صرف محظوظ کیا بلکہ اسلامی تاریخ سے جوڑنے میں بھی اہم کردار ادا کیا ہے۔
+                        <br></br>
+                        اس ڈرامے میں دکھائی جانے والی بہادری، قیادت، اور ایمان داری جیسے عناصر پاکستانی نوجوانوں کو متاثر کر رہے ہیں۔ کرداروں کی ادائیگی، لباس، اور سیٹس نے ایک ایسا ماحول تخلیق کیا ہے جو ناظرین کو ماضی کی دنیا میں لے جاتا ہے۔ بہت سے پاکستانی ناظرین نے ڈرامے سے متاثر ہو کر ترکی زبان سیکھنے اور وہاں کے کلچر کو جاننے میں دلچسپی لینا شروع کر دی ہے۔ یہاں تک کہ پاکستان کے مختلف شہروں میں ارطغرل تھیم پر مبنی کیفے اور ایونٹس کا انعقاد بھی کیا گیا۔
+                        <br></br>
+                        حکومت پاکستان نے بھی سرکاری چینل پر اس ڈرامے کو نشر کرنے کا فیصلہ کیا تھا تاکہ عوام کو اسلامی تاریخ اور روایات سے روشناس کروایا جا سکے۔ وزیر اعظم عمران خان نے کئی بار ڈرامے کی تعریف کی اور اسے نوجوان نسل کے لیے ایک مثبت مواد قرار دیا۔ اگرچہ بعض حلقے اس پر تنقید بھی کرتے ہیں کہ ملکی ڈرامہ انڈسٹری کو اس سے نقصان ہو سکتا ہے، تاہم اکثریت اس کے تعلیمی اور ثقافتی فوائد کو تسلیم کرتی ہے۔ "ارطغرل غازی" نے پاکستان میں ترک مواد کے لیے نئی راہیں ہموار کی ہیں اور ایک ثقافتی پل قائم کیا ہے۔
+                    `,
+                    related: [
+                        { id: 'pakpattan-plane-ur', title: 'پاکپتن میں نوجوان کے بنائے جہاز پر مقدمہ درج', lang: 'ur' },
+                        { id: 'biz-relief-ur', title: 'زیرو ریٹڈ برمدی صنعتوں کیلئے بجلی میں بڑا ریلیف', lang: 'ur' },
+                        { id: 'rajkumar-song-ur', title: 'شاہد کپور اور سوناکشی کی فلم کا نیا گانا جاری', lang: 'ur' }
+                    ],
+                },
+                'biz-relief-ur': {
+                    title: 'زیرو ریٹڈ برمدی صنعتوں کیلئے بجلی میں بڑا ریلیف',
+                    category: 'معیشت',
+                    categoryClass: 'economy',
+                    date: '15 اپریل 2025',
+                    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-wDuF4UWmMLDN-VTUyqqnP3-NSMWrtj3RTA&s',
+                    imageCaption: 'برآمدی صنعتوں کیلئے بجلی نرخوں میں کمی پر ردعمل',
+                    author: 'CNN پاکستان',
+                    content: `
+                        حکومت نے زیرو ریٹڈ برمدی صنعتوں کیلئے بجلی کی قیمتوں میں بڑے ریلیف کا اعلان کر دیا ہے۔ اس اعلان کے تحت، زیرو ریٹڈ صنعتوں کو بجلی کی قیمتوں میں 20 فیصد تک کمی فراہم کی جائے گی۔
+                        <br></br>
+                        اس اقدام سے برآمدی شعبے کو کم لاگت پر توانائی حاصل ہو گی، جو کاروبار کو وسعت دینے میں مددگار ثابت ہو گا۔ حکام کا کہنا ہے کہ بجلی کی فراہمی میں تسلسل، شفافیت اور مزید سہولیات بھی فراہم کی جائیں گی تاکہ برآمدات میں اضافہ ممکن ہو۔
+                        <br></br>
+                        کاروباری افراد نے حکومت کے اس فیصلے کا خیرمقدم کیا ہے اور امید ظاہر کی ہے کہ اس اقدام سے پاکستان کی برآمدات کو بین الاقوامی مارکیٹ میں مسابقتی برتری حاصل ہو گی۔
+                    `,
+                    related: [
+                        { id: 'rajkumar-song-ur', title: 'شاہد کپور اور سوناکشی کی فلم کا نیا گانا جاری', lang: 'ur' },
+                        { id: 'entertain-id', title: 'ڈرامہ سیریل ارطغرل غازی کی پاکستان میں مقبولیت', lang: 'ur' },
+                        { id: 'pakpattan-plane-id', title: 'پاکپتن میں نوجوان کے بنائے جہاز پر مقدمہ درج', lang: 'ur' }
+                    ],
+                },
+                'petroleum-issue-ur': {
+                    title: 'پیٹرولیم کی قیمتوں پر سیاست بند کی جائے، وزیر خزانہ',
+                    category: 'معیشت',
+                    categoryClass: 'economy',
+                    date: '18 اپریل 2025',
+                    image: 'https://bsmedia.business-standard.com/_media/bs/img/article/2020-10/10/full/1602299460-7732.jpg?im=FeatureCrop,size=(826,465)',
+                    imageCaption: 'پیٹرولیم قیمتوں میں اضافہ عوامی توجہ کا مرکز',
+                    author: 'CNN پاکستان',
+                    content: `
+                        اسلام آباد -- وزیر خزانہ اسحاق ڈار نے کہا ہے کہ پیٹرولیم مصنوعات کی قیمتوں کو بلاوجہ سیاسی مسئلہ بنایا جا رہا ہے۔ ان کا کہنا تھا کہ قیمتوں میں اضافے کی وجوہات میں عالمی منڈی کی تبدیلی، ملکی زرمبادلہ کے ذخائر، اور مالی بحران شامل ہیں۔
+                        <br></br>
+                        انہوں نے کہا کہ حکومت اس معاملے کو سنجیدگی سے دیکھ رہی ہے اور ہر ممکن اقدام کر رہی ہے تاکہ عوام پر کم سے کم بوجھ پڑے۔ ٹیکس میں کمی، سبسڈی اور درآمدات کی پالیسی پر نظر ثانی جیسے اقدامات زیر غور ہیں۔
+                        <br></br>
+                        وزیر خزانہ نے عوام سے اپیل کی کہ وہ جذباتی رویہ اختیار کرنے کی بجائے حکومت کے ساتھ تعاون کریں تاکہ ملک کو معاشی مشکلات سے نکالا جا سکے۔
+                    `,
+                    related: [
+                        { id: 'rajkumar-song-ur', title: 'شاہد کپور اور سوناکشی کی فلم کا نیا گانا جاری', lang: 'ur' },
+                        { id: 'biz-relief-ur', title: 'زیرو ریٹڈ برمدی صنعتوں کیلئے بجلی میں بڑا ریلیف', lang: 'ur' },
+                        { id: 'pakpattan-plane-id', title: 'پاکپتن میں نوجوان کے بنائے جہاز پر مقدمہ درج', lang: 'ur' }
+                    ],
+                },
+                'pakpattan-plane-ur': {
+                    title: 'پاکپتن میں نوجوان نے چھوٹا جہاز تیار کر کے آزمائش کی کوشش کی، مقدمہ درج',
+                    category: 'عجیب و غریب',
+                    categoryClass: 'offbeat',
+                    date: '12 اپریل 2025',
+                    image: 'https://www.aanavandi.com/blog/wp-content/uploads/2019/05/pa1.jpg',
+                    imageCaption: 'نوجوان نے تیار کردہ چھوٹے طیارے کی آزمائش کی کوشش کی',
+                    author: 'ڈان نیوز',
+                    content: `
+                        پاکپتن -- اپنی مدد آپ کے تحت اڑنے والا چھوٹا جہاز تیار کرنے والے نوجوان فیاض کے خلاف پولیس نے مقدمہ درج کر لیا ہے۔ ایف آئی آر کے مطابق جہاز بغیر اجازت نامہ بنایا گیا اور پرواز کی کوشش کی گئی۔
+                        <br></br>
+                        فیاض کے اہل خانہ کے مطابق، اس نے جہاز کی تیاری میں ایک سال محنت کی، زمین بیچی، اور بینک سے قرض لے کر انجن خریدا۔ وہ دن میں پاپ کارن فروخت کرتا اور رات میں یونیورسٹی میں چوکیداری کرتا تھا۔
+                        <br></br>
+                        پولیس نے طیارے کی آزمائش کے دوران کھیتوں سے گرفتار کیا اور مشین کو ضبط کر کے تھانے منتقل کیا۔ حکام کے مطابق، کارروائی صرف حفاظتی بنیادوں پر کی گئی تاکہ کسی کو نقصان نہ پہنچے۔
+                    `,
+                    related: [
+                        { id: 'rajkumar-song-ur', title: 'شاہد کپور اور سوناکشی کی فلم کا نیا گانا جاری', lang: 'ur' },
+                        { id: 'petroleum-issue-ur', title: 'پیٹرولیم کی قیمتوں پر سیاست بند کی جائے، وزیر خزانہ', lang: 'ur' },
+                        { id: 'biz-relief-ur', title: 'زیرو ریٹڈ برمدی صنعتوں کیلئے بجلی میں بڑا ریلیف', lang: 'ur' }
+                    ],
+                },
+                'rajkumar-song-ur': {
+                    title: 'شاہد اور سوناکشی کی فلم راجکمار کے نئے گانے کی وڈیو نے دھوم مچا دی',
+                    category: 'تفریح',
+                    categoryClass: 'entertainment',
+                    date: '14 اپریل 2025',
+                    image: 'https://st1.bollywoodlife.com/wp-content/uploads/2013/10/Saree-ka-Fall1.jpg',
+                    imageCaption: 'شاہد اور سوناکشی نئے گانے کی وڈیو میں رقص کرتے ہوئے',
+                    author: 'این جی ٹی بالی ووڈ',
+                    content: `
+                        ممبئی -- شاہد کپور اور سوناکشی سنہا کی ایکشن فلم "راجکمار" کے نئے گانے "مت مارے" کی ویڈیو ریلیز کر دی گئی ہے۔ یہ گانا کنال گنجاوالا اور سونیدھی چوہان نے گایا ہے جبکہ موسیقی پریتم نے ترتیب دی ہے۔
+                        <br></br>
+                        گانے میں شاہد اور سوناکشی کی شاندار رقص پرفارمنس دیکھنے کو ملتی ہے۔ فلم کے ہدایتکار پربھو دیوا ہیں اور کہانی شیراز احمد نے تحریر کی ہے۔ فلم میں سونو سود، پونم جھاور اور شردھا کپور بھی نمایاں کرداروں میں شامل ہیں۔
+                        <br></br>
+                        "راجکمار" کا بجٹ چالیس کروڑ روپے ہے اور یہ فلم 6 دسمبر کو سینما گھروں کی زینت بنے گی۔ گانے کی ریلیز نے شائقین میں جوش پیدا کر دیا ہے اور سوشل میڈیا پر بھی اس کی خوب پذیرائی کی جا رہی ہے۔
+                    `,
+                    related: [
+                        { id: 'biz-relief-ur', title: 'زیرو ریٹڈ برمدی صنعتوں کیلئے بجلی میں بڑا ریلیف', lang: 'ur' },
+                        { id: 'entertain-ur', title: 'ڈرامہ سیریل ارطغرل غازی کی پاکستان میں مقبولیت', lang: 'ur' },
+                        { id: 'petroleum-issue-ur', title: 'پیٹرولیم کی قیمتوں پر سیاست بند کی جائے، وزیر خزانہ', lang: 'ur' }
+                    ],
+                },
+
+                // Arabic articles
+                'quantum-ar': {
+                    title: 'اختراق في الحوسبة الكمومية قد يُحدث ثورة في معالجة البيانات',
+                    category: 'تكنولوجيا',
+                    categoryClass: 'technology',
+                    tag: 'Human',
+                    date: '10 أبريل 2025',
+                    image: 'https://www.digitalexperience.live/sites/default/files/2024-07/quantum_computing.jpg',
+                    imageCaption: 'أجهزة حوسبة كمومية متقدمة',
+                    author: 'محمد شهاب',
+                    content: `<p>أعلن العلماء عن تقدم كبير في استقرار الحوسبة الكمومية، مما قد يجعل أجهزة الكمبيوتر الكمومية العملية أقرب إلى الواقع. طور باحثون في معهد تكنولوجيا الكم طريقة جديدة للحفاظ على التماسك الكمومي لفترات طويلة، مما يعالج أحد أكبر التحديات في هذا المجال.</p>
+                               <p>يتضمن الاختراق نظام تبريد جديد مع خوارزميات متقدمة لتصحيح الأخطاء تقلل بشكل كبير من مشاكل فقدان التماسك الكمومي. في الاختبارات، حافظ النظام على الحالات الكمومية لمدة تصل إلى 10 دقائق - وهو تحسن كبير مقارنة بالسجلات السابقة التي كانت تقاس بالميكروثانية.</p>
+                               <p>"هذه قفزة كمومية إلى الأمام، إذا سمحتم لي بالتورية،" قالت الدكتورة إليانور فوجيتا، الباحثة الرئيسية في المشروع. "نحن الآن نتحدث عن أجهزة كمبيوتر كمومية يمكنها تشغيل خوارزميات معقدة دون فقدان سلامة البيانات."</p>`,
+                    related: [
+                        { id: 'climate-ar', title: 'قادة العالم يتوصلون إلى اتفاق تاريخي بشأن المناخ', lang: 'ar' },
+                        { id: 'alzheimer-ar', title: 'اختراق جديد في البحث الطبي يُظهر وعدًا بعلاج مرض الزهايمر', lang: 'ar' }
+                    ]
+                },
+                'alzheimer-ar': {
+                    title: 'اختراق جديد في البحث الطبي يُظهر وعدًا بعلاج مرض الزهايمر',
+                    category: 'صحة',
+                    categoryClass: 'health',
+                    tag: 'Human',
+                    date: '9 أبريل 2025',
+                    image: 'https://news.joindementiaresearch.nihr.ac.uk/wp-content/uploads/2023/07/GettyImages-1388388021.jpg',
+                    imageCaption: 'باحث يفحص نتائج التصوير الدماغي',
+                    author: 'د. ليلى حسن',
+                    content: `<p>أظهر علاج جديد التطوير نتائج ملحوظة في التجارب السريرية المبكرة، مما يقدم الأمل لملايين المصابين بمرض الزهايمر. تستهدف العلاجات المبتكرة، التي طورها فريق دولي من الباحثين، الأسباب الجذرية للتنكس العصبي بدلاً من مجرد إدارة الأعراض.</p>
+                               <p>يجمع العلاج بين دواء جديد يقلل من تكوين اللويحات الأميلويدية مع تقنيات العلاج المناعي المستهدفة. في التجارب السريرية من المرحلة الثانية التي شملت 240 مريضًا في المراحل المبكرة من مرض الزهايمر، أظهر 78٪ تحسنًا كبيرًا في الإدراك بعد ستة أشهر من العلاج.</p>
+                               <p>"ما يجعل هذا النهج مختلفًا هو أننا لا نبطئ تقدم المرض فحسب، بل نرى أيضًا انعكاسًا للتدهور المعرفي لدى العديد من المرضى،" شرح الدكتور ماركوس ويليامز، الطبيب الرئيسي للتجربة. "هذا يشير إلى أننا قد نكون قادرين على استعادة الوظيفة العصبية، وليس فقط الحفاظ على ما تبقى."</p>`,
+                    related: [
+                        { id: 'climate-ar', title: 'قادة العالم يتوصلون إلى اتفاق تاريخي بشأن المناخ', lang: 'ar' },
+                        { id: 'quantum-ar', title: 'اختراق في الحوسبة الكمومية قد يُحدث ثورة في معالجة البيانات', lang: 'ar' }
+                    ]
+                },
+                // Urdu articles could be added here similarly
+                'politics-ur': {
+                    title: 'عالمی رہنماؤں نے موسمیاتی تبدیلی پر تاریخی معاہدہ طے کر لیا',
+                    category: 'سیاست',
+                    categoryClass: 'politics',
+                    date: '11 اپریل 2025',
+                    image: 'https://grist.org/wp-content/uploads/2015/12/cop21-c-conexiocc81ncop-agencia-de-noticias.jpg',
+                    imageCaption: 'عالمی موسمیاتی سربراہی اجلاس میں عالمی رہنما',
+                    author: 'عمران علی',
+                    content: `<p>دنیا بھر کے 190 سے زائد ممالک کے رہنماؤں نے عالمی موسمیاتی سربراہی اجلاس میں 2030 تک کاربن اخراج میں 50٪ کمی لانے کے لیے ایک تاریخی معاہدہ طے کر لیا ہے۔ دو ہفتوں کی سخت مذاکرات کے بعد آنے والا یہ معاہدہ ترقی پذیر ممالک کے لیے مالی مدد کے طریقہ کار اور قابل تجدید توانائی اپنانے کے لیے بلند حوصلہ اہداف مقرر کرتا ہے۔</p>
+                               <p>یہ معاہدہ فوسل فیول سبسڈی کو مرحلہ وار ختم کرنے، صاف توانائی کی بنیادی ڈھانچے میں سرمایہ کاری، اور صنعتوں میں سخت اخراج ضوابط نافذ کرنے کے لیے ایک روڈ میپ متعین کرتا ہے۔ ترقی یافتہ ممالک نے کمزور ممالک کو موسمیاتی اثرات کو کم کرنے اور ان کے ساتھ موافقت کرنے میں مدد کے لیے سالانہ 150 ارب ڈالر سے زائد کا حصہ ڈالنے کا عہد کیا ہے۔</p>`,
+                    related: [
+                        { id: 'climate-ar', title: 'قادة العالم يتوصلون إلى اتفاق تاريخي بشأن المناخ', lang: 'ar' },
+                        { id: 'quantum-ar', title: 'اختراق في الحوسبة الكمومية قد يُحدث ثورة في معالجة البيانات', lang: 'ar' },
+                        { id: 'alzheimer-ar', title: 'اختراق جديد في البحث الطبي يُظهر وعدًا بعلاج مرض الزهايمر', lang: 'ar' }
+                    ]
+                }
+            };
+            
+            // Get the article
+            const article = articles[articleId];
+            
+            if (article) {
+                // Update page title
+                document.title = article.title;
+                document.getElementById('article-title').textContent = article.title;
+                
+                // Update article elements
+                document.getElementById('article-headline').textContent = article.title;
+                document.getElementById('article-category').textContent = article.category;
+                document.getElementById('article-category').className = 'category ' + article.categoryClass;
+                document.getElementById('article-date').textContent = article.date;
+                document.getElementById('article-image').src = article.image;
+                document.getElementById('article-image').alt = article.title;
+                document.getElementById('image-caption').textContent = article.imageCaption;
+                document.getElementById('article-content').innerHTML = article.content;
+                document.getElementById('article-author').textContent = article.author;
+                
+                // Populate related articles
+                const relatedList = document.getElementById('related-articles-list');
+                if (relatedList) {
+                    // Clear existing content
+                    relatedList.innerHTML = '';
+                    
+                    if (article.related && article.related.length > 0) {
+                        article.related.forEach(related => {
+                            const li = document.createElement('li');
+                            const a = document.createElement('a');
+                            
+                            // Set the correct URL based on language direction
+                            const isRtl = related.lang === 'ar' || related.lang === 'ur';
+                            a.href = `${isRtl ? 'article-rtl' : 'article'}.html?id=${related.id}&lang=${related.lang}`;
+                            
+                            a.textContent = related.title;
+                            li.appendChild(a);
+                            relatedList.appendChild(li);
+                        });
+                    } else {
+                        // If no related articles, show a message
+                        const li = document.createElement('li');
+                        li.textContent = 'لا توجد مقالات ذات صلة متاحة';
+                        relatedList.appendChild(li);
+                    }
+                } else {
+                    console.error('عنصر قائمة المقالات ذات الصلة غير موجود!');
+                }
+            } else {
+                console.error('المقال غير موجود!');
+                // Redirect back to homepage if article not found
+                // window.location.href = language === 'ar' ? 'arabic.html' : 'index.html';
+            }
+        }
+        
+        function setActiveLanguage(language) {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                
+                if (language === 'en' && link.getAttribute('href') === 'index.html') {
+                    link.classList.add('active');
+                } else if (language === 'ar' && link.getAttribute('href') === 'arabic.html') {
+                    link.classList.add('active');
+                } else if (language === 'ur' && link.getAttribute('href') === 'urdu.html') {
+                    link.classList.add('active');
+                } else if (language === 'bg' && link.getAttribute('href') === 'bulgarian.html') {
+                    link.classList.add('active');
+                } else if (language === 'ru' && link.getAttribute('href') === 'russian.html') {
+                    link.classList.add('active');
+                } else if (language === 'id' && link.getAttribute('href') === 'indonesian.html') {
+                    link.classList.add('active');
+                } else if (language === 'zh' && link.getAttribute('href') === 'chinese.html') {
+                    link.classList.add('active');
+                }
+            });
+        }
+        </script>
+    </body>
+</html>

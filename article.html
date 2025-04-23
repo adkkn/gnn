@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="article-title">Article Title</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="gnn-favicon.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <a href="#">Subscribe</a>
+            <a href="#">Today's Paper</a>
+            <a href="#">Newsletter</a>
+        </div>
+        <div class="top-bar-right">
+            <button class="top-bar-button">Sign In</button>
+            <button class="top-bar-button">Subscribe</button>
+        </div>
+    </div>  
+    <header>
+        <div class="logo-container">
+            <img class="gnnlogo" src="gnnicon.jpg" alt="GNN Logo">
+            <div class="title" id="site-title">Global News Network</div>
+        </div>
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">English</a></li>
+                <li><a href="arabic.html">العربية</a></li>
+                <li><a href="urdu.html">اردو</a></li>
+                <li><a href="bulgarian.html">Български</a></li>
+                <li><a href="russian.html">Русский</a></li>
+                <li><a href="indonesian.html">Bahasa Indonesia</a></li>
+                <li><a href="chinese.html">中文</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search news...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <main class="article-page">
+        <div class="article-container">
+            <div class="article-header">
+                    <span id="article-category" class="category politics">Category</span>
+                <h1 id="article-headline">Article Headline</h1>
+                <p id="article-date" class="date">Date</p>
+            </div>
+            <div class="article-image-container">
+                <img id="article-image" src="" alt="Article image">
+                <p class="image-caption" id="image-caption">Image caption</p>
+            </div>
+            <div id="article-content" class="article-body">
+                <!-- Content will be loaded dynamically -->
+                <p>Loading article content...</p>
+            </div>
+            <div class="article-author">
+                <p>By <span id="article-author">Author Name</span></p>
+            </div>
+        </div>
+        
+        <aside class="article-sidebar">
+            <div class="related-articles">
+                <h3>Related Articles</h3>
+                <ul id="related-articles-list">
+                    <!-- Will be populated dynamically -->
+                    <li>Loading related articles...</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About Global News Network</h2>
+                <p>GNN is dedicated to providing accurate, timely, and balanced news coverage from around the world in multiple languages.</p>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contact Us</h2>
+                <p><i class="fas fa-map-marker-alt"></i> 123 News Street, Media City</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@globalnewsnetwork.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p style="margin-bottom: 0px;">&copy; 2025 Global News Network. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id');
+        const language = urlParams.get('lang');
+        
+        if (articleId && language) {
+            loadArticleContent(articleId, language);
+        } else {
+            // Redirect back to homepage if no article specified
+            window.location.href = 'index.html';
+        }
+    });
+
+    function loadArticleContent(articleId, language) {
+        // This is a simplified version - in a real app, you'd fetch from a database
+        const articles = {
+            'climate-en': {
+                title: 'Global Leaders Reach Historic Climate Agreement',
+                category: 'Politics',
+                categoryClass: 'politics',
+                tag: 'MGT',
+                date: 'April 11, 2025',
+                image: 'https://grist.org/wp-content/uploads/2015/12/cop21-c-conexiocc81ncop-agencia-de-noticias.jpg',
+                imageCaption: 'World leaders at the Global Climate Summit',
+                author: 'Sarah Johnson',
+                content: `<p>World leaders from over 190 countries have reached a landmark agreement at the Global Climate Summit to reduce carbon emissions by 50% by 2030. The agreement, which comes after two weeks of intense negotiations, includes mechanisms for financial support to developing nations and sets ambitious targets for renewable energy adoption.</p>
+                          <p>The pact outlines a roadmap for phasing out fossil fuel subsidies, investing in clean energy infrastructure, and implementing stricter emissions regulations across industries. Developed nations have committed to contributing over $150 billion annually to help vulnerable countries mitigate and adapt to climate impacts.</p>
+                          <p>Environmental activists hailed the agreement as a "turning point for humanity," though some critics argue that enforcement mechanisms remain vague. Still, experts agree this deal sends a strong global signal and could drive innovation in green technologies and cross-border collaboration.</p>
+                          <p>UN Secretary-General Antonio Guterres praised the unity shown at the summit, stating, "This agreement proves that multilateralism works, and the world can come together to tackle the greatest challenge of our time."</p>
+                          <p>Negotiations were particularly tense around issues of accountability and climate justice, with several nations demanding historical polluters take greater responsibility. The final document includes a clause to revisit progress every two years, with penalties for non-compliance still under discussion.</p>`,
+                related: [
+                    { id: 'quantum-en', title: 'Breakthrough in Quantum Computing Could Revolutionize Data Processing', lang: 'en' },
+                    { id: 'alzheimer-en', title: 'New Breakthrough in Medical Research Shows Promise for Treating Alzheimer\'s', lang: 'en' }
+                ]
+            },
+            'quantum-en': {
+                title: 'Breakthrough in Quantum Computing Could Revolutionize Data Processing',
+                category: 'Technology',
+                categoryClass: 'technology',
+                tag: 'Human',
+                date: 'April 10, 2025',
+                image: 'https://www.digitalexperience.live/sites/default/files/2024-07/quantum_computing.jpg',
+                imageCaption: 'Advanced quantum computing hardware',
+                author: 'Michael Chen',
+                content: `<p>Scientists announce a significant advance in quantum computing stability, potentially bringing practical quantum computers closer to reality. Researchers at the Quantum Technology Institute have developed a new method to maintain quantum coherence for extended periods, addressing one of the field's biggest challenges.</p>
+                          <p>The breakthrough involves a novel cooling system combined with advanced error correction algorithms that significantly reduce decoherence issues. In tests, the system maintained quantum states for up to 10 minutes - a dramatic improvement over previous records measured in microseconds.</p>
+                          <p>"This is a quantum leap forward, if you'll pardon the pun," said Dr. Eleanor Fujita, lead researcher on the project. "We're now talking about quantum computers that could potentially run complex algorithms without losing data integrity."</p>
+                          <p>Industry experts suggest that this advancement could accelerate the timeline for practical quantum computing applications in fields ranging from drug discovery to materials science and cryptography.</p>
+                          <p>Tech companies have already shown interest in the technology, with several major firms announcing plans to incorporate the new stabilization techniques into their quantum research programs.</p>`,
+                related: [
+                    { id: 'climate-en', title: 'Global Leaders Reach Historic Climate Agreement', lang: 'en' },
+                    { id: 'alzheimer-en', title: 'New Breakthrough in Medical Research Shows Promise for Treating Alzheimer\'s', lang: 'en' }
+                ]
+            },
+            'alzheimer-en': {
+                title: 'New Breakthrough in Medical Research Shows Promise for Treating Alzheimer\'s',
+                category: 'Health',
+                categoryClass: 'health',
+                tag: 'Human',
+                date: 'April 9, 2025',
+                image: 'https://news.joindementiaresearch.nihr.ac.uk/wp-content/uploads/2023/07/GettyImages-1388388021.jpg',
+                imageCaption: 'Researcher examining brain scan results',
+                author: 'Dr. Priya Sharma',
+                content: `<p>A newly developed treatment has shown remarkable results in early clinical trials, potentially offering hope to millions affected by Alzheimer's disease. The innovative therapy, developed by an international team of researchers, targets the root causes of neurodegeneration rather than just managing symptoms.</p>
+                          <p>The treatment combines a novel drug that reduces amyloid plaque formation with targeted immunotherapy techniques. In Phase II clinical trials involving 240 patients with early-stage Alzheimer's, 78% showed significant cognitive improvement after six months of treatment.</p>
+                          <p>"What makes this approach different is that we're not just slowing the disease progression, but actually seeing reversal of cognitive decline in many patients," explained Dr. Marcus Williams, lead clinician for the trial. "This suggests we may be able to restore neural function, not just preserve what remains."</p>
+                          <p>The therapy works by simultaneously targeting multiple pathways involved in Alzheimer's disease pathology, including inflammation, protein misfolding, and cellular energy metabolism.</p>
+                          <p>While researchers caution that larger trials are needed, the medical community has responded with cautious optimism. Phase III trials are already being planned across multiple countries, with results expected by late 2026.</p>`,
+                related: [
+                    { id: 'climate-en', title: 'Global Leaders Reach Historic Climate Agreement', lang: 'en' },
+                    { id: 'quantum-en', title: 'Breakthrough in Quantum Computing Could Revolutionize Data Processing', lang: 'en' }
+                ]
+            },
+            // Indonesian articles
+            'ai-id': { // Changed ID to reflect AI and Indonesian language
+                title: 'Inteligensi Buatan: Mengubah Dunia dan Masa Depan', // 7-word Indonesian title from AI article
+                category: 'Teknologi', // Indonesian category
+                categoryClass: 'technology',
+                date: '10 April 2025', // Keeping the date from your example
+                image: 'https://www.imda.gov.sg/-/media/imda/images/content/news-and-events/impact-news-2024/04/ai-governance/ai-governance.webp', // Placeholder: Replace with an actual AI image URL
+                imageCaption: 'Ilustrasi Konsep Inteligensi Buatan', // Indonesian caption for an AI image
+                author: 'Budi Santoso', // Keeping the author name
+                content: `
+                    Inteligensi Buatan, atau AI, bukan lagi sekadar konsep fiksi ilmiah, melainkan kekuatan transformatif yang telah meresap ke dalam berbagai aspek kehidupan modern kita. Dari ponsel pintar yang kita gunakan setiap hari hingga sistem kompleks yang mengelola infrastruktur kota, AI berperan penting dalam meningkatkan efisiensi, kenyamanan, dan bahkan keselamatan.
+                    <br></br>
+                    Pada dasarnya, AI adalah kemampuan mesin untuk meniru kemampuan kognitif manusia seperti belajar, memecahkan masalah, persepsi, dan pengambilan keputusan. Melalui algoritma canggih dan data dalam jumlah besar, sistem AI dapat mengidentifikasi pola, membuat prediksi, dan bahkan menghasilkan konten baru. Bidang seperti *machine learning* dan *deep learning* telah mendorong kemajuan signifikan dalam beberapa tahun terakhir, memungkinkan aplikasi yang dulunya dianggap mustahil.
+                    <br></br>
+                    Kita melihat aplikasi AI di mana-mana. Asisten virtual seperti Siri atau Google Assistant menggunakan AI untuk memahami perintah suara. Platform *streaming* seperti Netflix atau Spotify merekomendasikan konten berdasarkan kebiasaan menonton atau mendengarkan kita. Di sektor kesehatan, AI membantu dalam analisis citra medis untuk deteksi penyakit dini atau pengembangan obat baru. Industri manufaktur menggunakan robot bertenaga AI untuk otomatisasi proses produksi, meningkatkan kecepatan dan akurasi. Bahkan kendaraan otonom yang sedang dikembangkan mengandalkan AI untuk navigasi dan pengambilan keputusan *real-time*.
+                    <br></br>
+                    Dampak AI terhadap kehidupan sehari-hari sangat signifikan. AI mengoptimalkan rute transportasi, mempersonalisasi pengalaman belanja online, meningkatkan keamanan siber, dan bahkan membantu petani memprediksi hasil panen. Di dunia kerja, AI dapat mengotomatiskan tugas-tugas rutin, membebaskan manusia untuk fokus pada pekerjaan yang memerlukan kreativitas, pemikiran kritis, dan interaksi antarmanusia. Ini bukan berarti AI akan sepenuhnya menggantikan manusia, tetapi lebih ke arah kolaborasi yang saling melengkapi.
+                    <br></br>
+                    Namun, pesatnya perkembangan AI juga menimbulkan tantangan dan pertanyaan etis yang kompleks. Isu seperti potensi hilangnya pekerjaan akibat otomatisasi, bias dalam algoritma yang dapat mendiskriminasi, masalah privasi data, dan kebutuhan akan transparansi dalam sistem AI menjadi topik perdebatan hangat. Penting bagi masyarakat, pemerintah, dan pengembang teknologi untuk bekerja sama menciptakan kerangka kerja yang memastikan pengembangan dan penerapan AI dilakukan secara bertanggung jawab dan demi kebaikan bersama.
+                    <br></br>
+                    Masa depan AI menjanjikan inovasi lebih lanjut. Kita mungkin akan melihat AI yang lebih canggih dalam penelitian ilmiah, pendidikan yang dipersonalisasi, atau bahkan solusi untuk tantangan global seperti perubahan iklim. Potensi AI untuk memecahkan masalah kompleks dan membuka peluang baru sangat besar. Oleh karena itu, memahami AI, manfaatnya, serta tantangan yang menyertainya, sangat krusial bagi Indonesia dan dunia dalam menyambut era digital yang semakin didorong oleh kekuatan Inteligensi Buatan.
+                `, // Full Indonesian AI article content
+                related: [
+                    { id: 'sby-asn-id', title: 'SBY Desak Jokowi Tindak ASN Tak Netral', lang: 'id' },
+                    { id: 'tni-nduga-id', title: 'TNI Tuduh Kelompok Separatis Egunius Kogoya Sebagai Pelaku Penembakan Brutal di Bandara Nduga', lang: 'id' },
+                    { id: 'lrt-jakarta-id', title: 'LRT Jakarta Siap Beroperasi Tanpa Depo', lang: 'id' }
+                ]
+            },
+            'tni-nduga-id': {
+                title: 'TNI Tuduh Kelompok Separatis Egunius Kogoya Sebagai Pelaku Penembakan Brutal di Bandara Nduga',
+                category: 'Keamanan',
+                categoryClass: 'security',
+                date: '25 Juni 2018',
+                image: 'https://img.jakpost.net/c/2024/04/16/2024_04_16_149341_1713259997._large.jpg',
+                imageCaption: 'Ilustrasi aparat TNI di wilayah Papua',
+                author: 'CNN Indonesia',
+                content: `
+                    NDUGA - Penembakan dan pembunuhan yang dilakukan tentara Organisasi Papua Merdeka (OPM) di sekitar Bandara Keneyam, Nduga, Papua, diduga dilakukan oleh Kelompok Kriminal Separatis Bersenjata (KKSB) wilayah Mugi Ndugame pimpinan Egunius Kogoya. Berdasarkan laporan intelijen dan pemeriksaan lapangan oleh satuan TNI dan Polri, aksi brutal ini terjadi pada Senin siang, 25 Juni 2018.
+                    <br></br>
+                    Kepala Penerangan Kodam XVII/Cenderawasih Kolonel Infanteri M Aidi menyatakan bahwa kelompok ini dikenal aktif dalam aksi kekerasan dan pernah merampas senjata SS1 milik anggota Zipur 10. Bahkan mereka sebelumnya menembak mati pekerja jalan PT PP, Vicko Sondakh, yang tengah mengerjakan proyek Jalan Trans Papua.
+                    <br></br>
+                    Sebelum kejadian, kelompok ini juga menembaki pesawat Trigana Air Twin Otter PK YRU yang hendak mendarat di Bandara Keneyam, mengakibatkan pilot Ahmad Abdillah Kamil tertembak di bahu dan kepala. Penumpangnya adalah 15 anggota Brimob yang ditugaskan untuk mengamankan Pilkada.
+                    <br></br>
+                    Setelah insiden itu, OPM dilaporkan membacok dan menembak pedagang lokal yang berada di sekitar bandara. Tiga orang tewas dan satu orang dirawat intensif. Saat ini, aparat TNI dan Polri sedang melakukan pengejaran terhadap pelaku di wilayah pedalaman Papua.
+                `,
+                related: [
+                    { id: 'ai-id', title: 'Inteligensi Buatan: Mengubah Dunia dan Masa Depan', lang: 'id' },
+                    { id: 'lrt-jakarta-id', title: 'LRT Jakarta Siap Beroperasi Tanpa Depo', lang: 'id' },
+                    { id: 'sby-asn-id', title: 'SBY Desak Jokowi Tindak ASN Tak Netral', lang: 'id' }
+                ],
+            },
+            'nu-bogor-id': {
+                title: 'NU Kabupaten Bogor Nyatakan Dukungan Politik Resmi untuk Pasangan Hadist dalam Pilkada Kabupaten Bogor',
+                category: 'Politik',
+                categoryClass: 'politics',
+                date: '22 Juni 2018',
+                image: 'https://baytarrahmah.org/wp-content/uploads/2019/06/2016_05_10_ISOMIL_TW_1024x512.jpg',
+                imageCaption: 'Kiai dan tokoh NU Kabupaten Bogor deklarasikan dukungan',
+                author: 'CNN Indonesia',
+                content: `
+                    Jakarta, CNN Indonesia -- Aliran dukungan kepada pasangan calon nomor urut 2 dalam Pilkada Kabupaten Bogor, Hj Ade Yasin dan H Iwan Setiawan (Hadist), makin kuat. Dukungan kali ini datang dari Pengurus Cabang Nahdlatul Ulama (PCNU) Kabupaten Bogor.
+                    <br></br>
+                    Dalam acara silaturahim Ramadhan dan buka puasa bersama, sekitar 40 kiai khos NU hadir dan mendeklarasikan dukungan kepada pasangan Hadist. Rois Syuriah PCNU KH Aim Zaimuddin mengatakan bahwa visi-misi pasangan Hadist sejalan dengan nilai-nilai para ulama dan Nahdliyin.
+                    <br></br>
+                    KH Aim menyerukan kepada seluruh warga NU untuk memilih pasangan Hadist pada Pilkada mendatang. “Mari kita jadi pemilih cerdas, dan gunakan hak pilih untuk mencoblos nomor 2,” ujar beliau di Pesantren Al Fatmahiyah, Jonggol.
+                    <br></br>
+                    Dukungan NU Kabupaten Bogor dianggap menjadi dorongan penting dalam kemenangan pasangan Hadist yang mengusung visi keislaman moderat dan pembangunan yang berkeadilan.
+                `,
+                related: [
+                    { id: 'ai-id', title: 'Inteligensi Buatan: Mengubah Dunia dan Masa Depan', lang: 'id' },
+                    { id: 'lrt-jakarta-id', title: 'LRT Jakarta Siap Beroperasi Tanpa Depo', lang: 'id' },
+                    { id: 'sby-asn-id', title: 'SBY Desak Jokowi Tindak ASN Tak Netral', lang: 'id' }
+                ],
+            },
+            'lrt-jakarta-id': {
+                title: 'LRT Jakarta Siap Beroperasi Tanpa Depo',
+                category: 'Transportasi',
+                categoryClass: 'transport',
+                date: '25 Juni 2018',
+                image: 'https://149539057.v2.pressablecdn.com/wp-content/uploads/2022/07/Greater-Jakarta-LRT-.jpeg',
+                imageCaption: 'LRT Jakarta diuji coba sebelum Asian Games',
+                author: 'CNN Indonesia',
+                content: `
+                    Jakarta, CNN Indonesia -- Pembangunan Light Rail Transit (LRT) Jakarta hampir rampung dan dipastikan akan beroperasi tanpa fasilitas depo. Transportasi umum ini direncanakan untuk digunakan selama Asian Games 2018.
+                    <br></br>
+                    Menurut manajer proyek LRT, sistem ini dibuat agar efisien tanpa memerlukan depo besar. Hal ini dilakukan untuk menghemat biaya dan lahan. LRT akan mampu mengangkut hingga 116.000 penumpang per hari dengan kecepatan hingga 80 km/jam.
+                    <br></br>
+                    Selain itu, LRT dilengkapi teknologi modern seperti WiFi dan pendingin ruangan. Masyarakat Jakarta diharapkan menyambut baik solusi transportasi ini karena kemampuannya mengurangi kemacetan ibu kota.
+                `,
+                related: [
+                    { id: 'ai-id', title: 'Inteligensi Buatan: Mengubah Dunia dan Masa Depan', lang: 'id' },
+                    { id: 'nu-bogor-id', title: 'NU Kabupaten Bogor Nyatakan Dukungan Politik Resmi untuk Pasangan Hadist dalam Pilkada Kabupaten Bogor', lang: 'id' },
+                    { id: 'sby-asn-id', title: 'SBY Desak Jokowi Tindak ASN Tak Netral', lang: 'id' }
+                ],
+            },
+            'sby-asn-id': {
+                title: 'SBY Desak Jokowi Tindak ASN Tak Netral',
+                category: 'Politik',
+                categoryClass: 'politics',
+                date: '14 Desember 2020',
+                image: 'https://www.iseas.edu.sg/wp-content/uploads/2024/10/AFP__20240828__36EY3AM__v1__HighRes__IndonesiaPoliticsVote-copy.jpeg',
+                imageCaption: 'Susilo Bambang Yudhoyono menyampaikan pernyataan lewat Twitter',
+                author: 'CNN Indonesia',
+                content: `
+                    Jakarta, CNN Indonesia -- Presiden ke-6 RI, Susilo Bambang Yudhoyono (SBY), meminta Presiden Joko Widodo untuk menindak ASN yang dianggap tidak netral dalam Pilkada 2020. Melalui unggahan di Twitter, SBY menegaskan adanya pelanggaran di berbagai daerah.
+                    <br></br>
+                    Menurut SBY, pelanggaran netralitas ini berpotensi merusak demokrasi dan harus ditindak tegas. Ia juga menyebut dugaan kecurangan dan manipulasi suara dalam sejumlah provinsi. Masyarakat dan pengamat politik pun menantikan respons langsung dari Presiden Jokowi.
+                    <br></br>
+                    Meski tudingan ini menjadi sorotan publik, hingga saat ini Jokowi belum mengeluarkan pernyataan resmi. Banyak pihak menilai tindakan tegas dari Presiden penting untuk menjaga integritas lembaga pemerintah dan memastikan keadilan dalam pemilu daerah.
+                `,
+                related: [
+                    { id: 'ai-id', title: 'Inteligensi Buatan: Mengubah Dunia dan Masa Depan', lang: 'id' },
+                    { id: 'nu-bogor-id', title: 'NU Kabupaten Bogor Nyatakan Dukungan Politik Resmi untuk Pasangan Hadist dalam Pilkada Kabupaten Bogor', lang: 'id' },
+                    { id: 'lrt-jakarta-id', title: 'LRT Jakarta Siap Beroperasi Tanpa Depo', lang: 'id' }
+                ],
+            },
+
+        };
+        
+        // Get the article
+        const article = articles[articleId];
+        
+        if (article) {
+            // Update page title
+            document.title = article.title;
+            document.getElementById('article-title').textContent = article.title;
+            
+            // Update article elements
+            document.getElementById('article-headline').textContent = article.title;
+            document.getElementById('article-category').textContent = article.category;
+            document.getElementById('article-category').className = 'category ' + article.categoryClass;
+            document.getElementById('article-date').textContent = article.date;
+            document.getElementById('article-image').src = article.image;
+            document.getElementById('article-image').alt = article.title;
+            document.getElementById('image-caption').textContent = article.imageCaption;
+            document.getElementById('article-content').innerHTML = article.content;
+            document.getElementById('article-author').textContent = article.author;
+            
+            // Populate related articles
+            const relatedList = document.getElementById('related-articles-list');
+            if (relatedList) {
+                // Clear existing content
+                relatedList.innerHTML = '';
+                
+                if (article.related && article.related.length > 0) {
+                    article.related.forEach(related => {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        
+                        // Set the correct URL based on language direction
+                        const isRtl = related.lang === 'ar' || related.lang === 'ur';
+                        a.href = `${isRtl ? 'article-rtl' : 'article'}.html?id=${related.id}&lang=${related.lang}`;
+                        
+                        a.textContent = related.title;
+                        li.appendChild(a);
+                        relatedList.appendChild(li);
+
+                    });
+                } else {
+                    // If no related articles, show a message
+                    const li = document.createElement('li');
+                    li.textContent = 'No related articles available';
+                    relatedList.appendChild(li);
+                }
+            } else {
+                console.error('Related articles list element not found!');
+            }
+    }}
+
+    function setActiveLanguage(language) {
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            
+            if (language === 'en' && link.getAttribute('href') === 'index.html') {
+                link.classList.add('active');
+            } else if (language === 'ar' && link.getAttribute('href') === 'arabic.html') {
+                link.classList.add('active');
+            } else if (language === 'ur' && link.getAttribute('href') === 'urdu.html') {
+                link.classList.add('active');
+            } else if (language === 'bg' && link.getAttribute('href') === 'bulgarian.html') {
+                link.classList.add('active');
+            } else if (language === 'ru' && link.getAttribute('href') === 'russian.html') {
+                link.classList.add('active');
+            } else if (language === 'id' && link.getAttribute('href') === 'indonesian.html') {
+                link.classList.add('active');
+            } else if (language === 'zh' && link.getAttribute('href') === 'chinese.html') {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    </script>
+</body>
+</html>
